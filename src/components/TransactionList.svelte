@@ -4,26 +4,26 @@
     import store from '../store/store-transactions';
     import axios from 'axios';
 
-    let transactions;
-    const getTransactions = async () => {
-        try {
-            const res = await axios.get("/.netlify/functions/express");
-            store.set(
-                {
-                    transactions: res.data.data
-                }
-            );
-            store.subscribe( (existingStore) =>{
-                transactions = existingStore.transactions;
-            });
-        } catch (error) {
-            // update the store with error and show error message in the page ==> TODO
-        }
-    };
+    export let transactions;
+    // const getTransactions = async () => {
+    //     try {
+    //         const res = await axios.get("/.netlify/functions/express");
+    //         store.set(
+    //             {
+    //                 transactions: res.data.data
+    //             }
+    //         );
+    //         store.subscribe( (existingStore) =>{
+    //             transactions = existingStore.transactions;
+    //         });
+    //     } catch (error) {
+    //         // update the store with error and show error message in the page ==> TODO
+    //     }
+    // };
 
-    onMount( async () => {
-        await getTransactions()
-    });
+    // onMount( async () => {
+    //     await getTransactions()
+    // });
 
 </script>
 
