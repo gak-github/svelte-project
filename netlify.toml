@@ -4,5 +4,5 @@
   publish = "public"
 
 [dev]
-  command="npm run dev"
-  publish="public" # this is new
+  command="npm run startDev"
+  publish="public"
