@@ -11,8 +11,9 @@ const design = sign === "+" ? "plus" : "minus";
 const deleteTransaction = async (id) => {
     try {
       await axios.delete(`/.netlify/functions/express/${id}`);
-      store.update(id => {
-          return store.transactions.filter( item => item._id !== id);
+      store.update(currentStore => {
+          let filtered = currentStore.transactions.filter( item => item._id !== id);
+          return { transactions: filtered };
       });
       
     } catch (error) {

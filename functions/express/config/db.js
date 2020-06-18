@@ -2,7 +2,12 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    const PASSWORD = process.env.MONGO_PWD || 'ashok123'; // comes from netlify environment variable setting
+    const PASSWORD = process.env.MONGO_PWD; // comes from netlify environment variable setting
+    
+    if (!PASSWORD) { // if it is local development the password won't be availale so don't connect DB
+      return;
+    }
+
     const MONGO_URI = `mongodb+srv://ashok:${PASSWORD}@mern-stack-tw5cv.mongodb.net/mernstack?retryWrites=true&w=majority`;
     const conn = await mongoose.connect(MONGO_URI, {
       useNewUrlParser: true,
@@ -13,7 +18,6 @@ const connectDB = async () => {
 
   } catch (error) {
     console.log(`Error: ${error.message}`);
-    process.exit(1)
   }
 };
 

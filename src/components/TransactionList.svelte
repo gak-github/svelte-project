@@ -13,8 +13,8 @@
                     transactions: res.data.data
                 }
             );
-            store.subscribe( (transactionsList) =>{
-                transactions = transactionsList;
+            store.subscribe( (existingStore) =>{
+                transactions = existingStore.transactions;
             });
         } catch (error) {
             // update the store with error and show error message in the page ==> TODO

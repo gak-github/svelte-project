@@ -14,7 +14,7 @@
             const res = await axios.post("/.netlify/functions/express", transaction, config);
             // update the store with recently added transaction
             store.update( (existingStore) => {
-                return existingStore.transactions.push(res.data.data);
+                return { transactions: [...existingStore.transactions, transaction] };
             });
 
         } catch (error) {
