@@ -33,6 +33,8 @@
             amount: +amount,
         }
         addTransaction(newTransaction);
+        text = '';
+        amount = 0;
     };
 
     const setAmount = (e) => {
@@ -64,7 +66,7 @@
         </label>
         <input
         type="number"
-        value={amount}
+         bind:value={amount}
         on:change={ setAmount }
         id="amount"
         placeholder="Enter amount..."

@@ -16,10 +16,10 @@
                 {
                     transactions: res.data.data
                 }
-            );
-            store.subscribe( (existingStore) =>{
-                transactions = existingStore.transactions;
-            });
+			);
+			store.subscribe( (existingStore) =>{
+				transactions = existingStore.transactions;
+			});
         } catch (error) {
 			// update the store with error and show error message in the page ==> TODO
 			transactions = [{}];
