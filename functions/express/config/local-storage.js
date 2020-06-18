@@ -1,4 +1,4 @@
-[
+const localeStorage = [
     {
        "_id":"5e6d91589f48ef000851fd4f",
        "text":"plus2",
@@ -69,5 +69,7 @@
        "createdAt":"2020-06-18T01:37:12.920Z",
        "__v":0
     }
- ]
+];
+
+module.exports = localeStorage;
  
